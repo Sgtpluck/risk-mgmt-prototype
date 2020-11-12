@@ -1,0 +1,16 @@
+[
+  { 
+    "type": "Privacy",
+    "subrisks": {
+      "Historical/Cultural/Archelogical": {
+        "risk_factor": 0
+      },
+      "Personally Identifying Information": {
+        "risk_factor": 0
+      },
+      "Other human-subjects related risks": {
+        "risk_factor": 0
+      }
+    }
+  }
+]
