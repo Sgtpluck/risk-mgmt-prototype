@@ -43,7 +43,6 @@ class Main extends React.Component {
   render() {
     const graphStyle = {
       width: "30em",
-      display: this.state.showGraph ? "block" : "none"
     }
     
     return (
@@ -52,7 +51,7 @@ class Main extends React.Component {
           <Form handleSubmit={this.handleSubmit}/>
         </div>
         <div className="graph" style={graphStyle}>
-          <Graph data={this.state.data}></Graph>
+          { this.state.showGraph && <Graph data={this.state.data} /> }
         </div>        
       </div>
     );

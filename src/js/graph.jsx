@@ -9,7 +9,7 @@ export default class Graph extends React.Component {
       axis: {stroke: "#756f6a"},
       axisLabel: {fontSize: 20, padding: 30}
     }
-    
+
     return (
       <div>
         <VictoryChart
@@ -19,6 +19,11 @@ export default class Graph extends React.Component {
           <VictoryScatter  
             size={7}
             data={this.props.data}
+            style={{
+              data: {
+                fill: ({ fill }) => ( fill ? fill : "#756f6a" )
+              }
+            }}
             x="likelihood"
             y="impact_level"
           />

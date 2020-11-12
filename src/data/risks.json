@@ -16,5 +16,71 @@
         "impact_level": 0
       }
     }
+  },
+  { 
+    "type": "National security-related impacts",
+    "fill": "red",
+    "subrisks": {
+      "Reliance on classified software": {
+        "likelihood": 0,
+        "impact_level": 0
+      },
+      "Critical infrastructure": {
+        "likelihood": 0,
+        "impact_level": 0
+      },
+      "Export control/critical technology/dual use": {
+        "likelihood": 0,
+        "impact_level": 0
+      },
+      "Personnel/readiness": {
+        "likelihood": 0,
+        "impact_level": 0
+      }, 
+      "Other national security-related impact": {
+        "likelihood": 0,
+        "impact_level": 0
+      }
+    }
+  },
+  { 
+    "type": "Economic security-related impacts",
+    "fill": "pink",
+    "subrisks": {
+      "Critical natural resources": {
+        "likelihood": 0,
+        "impact_level": 0
+      },
+      "Government contractor performance": {
+        "likelihood": 0,
+        "impact_level": 0
+      },
+      "Intellectual property protection": {
+        "likelihood": 0,
+        "impact_level": 0
+      },
+      "Proprietary information": {
+        "likelihood": 0,
+        "impact_level": 0
+      }, 
+      "Supply chain identification": {
+        "likelihood": 0,
+        "impact_level": 0
+      },
+      "Other economic security-related impact": {
+        "likelihood": 0,
+        "impact_level": 0
+      }
+    }
+  },
+  { 
+    "type": "Other potential impacts",
+    "fill": "green",
+    "subrisks": {
+      "Federal Budget Embargoed Information": {
+        "likelihood": 0,
+        "impact_level": 0
+      }
+    }
   }
 ]
