@@ -1,20 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { VictoryChart, VictoryScatter, VictoryTheme } from 'victory';
+import { VictoryAxis, VictoryChart, VictoryScatter, VictoryTheme } from 'victory';
 
 
 export default class Graph extends React.Component {
   render() {
+    const axisStyle = {
+      axis: {stroke: "#756f6a"},
+      axisLabel: {fontSize: 20, padding: 30}
+    }
+    
     return (
       <div>
         <VictoryChart
-          domain={{ x: [0, 5], y: [0, 7] }}
+          domain={{ x: [0, 10], y: [0, 10] }}
           theme={VictoryTheme.material}
         >
           <VictoryScatter  
-            style={{ data: { fill: "#c43a31" } }}
             size={7}
-            data={this.props.data} 
+            data={this.props.data}
+            x="likelihood"
+            y="impact_level"
+          />
+          <VictoryAxis
+            label="Likelihood"
+            style={axisStyle}
+          />
+          <VictoryAxis
+            label="Impact"
+            dependentAxis
+            style={axisStyle}
           />
             
         </VictoryChart>

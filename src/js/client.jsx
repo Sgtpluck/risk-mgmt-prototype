@@ -3,19 +3,41 @@ import ReactDOM from 'react-dom';
 import Graph from './graph.jsx'
 import Form from './form.jsx'
 
-const data = [
-  { x: 1, y: 2 },
-  { x: 2, y: 3 },
-  { x: 3, y: 5 },
-  { x: 4, y: 4 },
-  { x: 5, y: 7 }
-]
-
 class Main extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { showGraph: false }
+    this.state = { showGraph: false, data: [{}] }
+  }
+
+  handleSubmit = (risks) => {
+    console.log(risks)
+
+    this.setState({
+      data: this.transformRisks(risks), 
+      showGraph: true 
+    })
+  }
+
+  transformRisks(risks) {
+    const data = []
+    risks.forEach((risk) => {
+      const fill = risk.fill
+
+      // this data structure is a mess yeesh
+      Object.keys(risk.subrisks).forEach((subriskName) => {
+        const axis = risk.subrisks[subriskName]
+        data.push(
+          {
+            likelihood: parseInt(axis.likelihood),
+            impact_level: parseInt(axis.impact_level),
+            fill: fill,
+            label: subriskName
+          }
+        )
+      })
+    })
+    return data
   }
 
   render() {
@@ -27,10 +49,10 @@ class Main extends React.Component {
     return (
       <div>
         <div className="form" >
-          <Form />
+          <Form handleSubmit={this.handleSubmit}/>
         </div>
         <div className="graph" style={graphStyle}>
-          <Graph data={data}></Graph>
+          <Graph data={this.state.data}></Graph>
         </div>        
       </div>
     );

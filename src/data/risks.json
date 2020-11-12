@@ -1,15 +1,19 @@
 [
   { 
     "type": "Privacy",
+    "fill": "blue",
     "subrisks": {
       "Historical/Cultural/Archelogical": {
-        "risk_factor": 0
+        "likelihood": 0,
+        "impact_level": 0
       },
       "Personally Identifying Information": {
-        "risk_factor": 0
+        "likelihood": 0,
+        "impact_level": 0
       },
       "Other human-subjects related risks": {
-        "risk_factor": 0
+        "likelihood": 0,
+        "impact_level": 0
       }
     }
   }

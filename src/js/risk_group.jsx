@@ -9,9 +9,9 @@ export default class RiskGroup extends React.Component {
     this.state = { risk: props.risk }
   }
 
-  handleChange = ({type, riskFactor}) => {
+  handleChange = ({type, value, subriskType}) => {
     let newRisk = this.state.risk
-    newRisk.subrisks[type].risk_factor = riskFactor
+    newRisk.subrisks[subriskType][type] = value
 
     this.setState({ risk: newRisk })
 
@@ -20,16 +20,27 @@ export default class RiskGroup extends React.Component {
 
   render() {
     const { type, subrisks } = this.state.risk
+    
     const subriskButtons = Object.keys(subrisks).map((subrisk, idx) => (
-      <RadioButton 
-        handleChange={this.handleChange.bind(this)}
-        subriskType={subrisk}
-        riskFactor={subrisks[subrisk].risk_factor}
-        key={idx} 
-      />
+      <div>
+        <p>{subrisk}</p> 
+        <div style={{display: "flex"}}>
+          <RadioButton 
+            handleChange={this.handleChange.bind(this)}
+            subriskType={subrisk}
+            type="likelihood"
+            key={`likelihood-${idx}`}
+          />
 
-      )
-    )
+          <RadioButton 
+            handleChange={this.handleChange.bind(this)}
+            subriskType={subrisk}
+            type="impact_level"
+            key={`impact-level-${idx}`}
+          />
+        </div>
+      </div>
+    ))
 
     return (
       <div>

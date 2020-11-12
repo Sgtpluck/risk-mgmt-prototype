@@ -14,8 +14,8 @@ export default class Form extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state.risks)
-    // this.handleSubmit(this.state.risks)
+
+    this.props.handleSubmit(this.state.risks)
   }
 
   handleChange(newChange, idx) {
@@ -35,9 +35,9 @@ export default class Form extends React.Component {
         <form onSubmit={this.onSubmit}>
           {
             this.state.risks.map((risk, idx) =>
-            <li key={risk.idx}>{
+            <div key={idx}>{
               <RiskGroup idx={idx} handleChange={this.handleChange.bind(this)} risk={risk} />
-            }</li>
+            }</div>
             )
           }
           <input type="submit" />
